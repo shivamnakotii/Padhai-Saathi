@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Padhai Saathi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <h1>Padhai Saathi</h1>
+    <p class="tag">Apne notes se padho, poocho, aur test do.</p>
+
+    <label class="drop" id="drop">
+      <input type="file" id="file" accept=".pdf,.txt,.md" hidden>
+      <b>Notes upload karo</b>
+      <span>PDF, TXT ya MD. Yahan drop karo ya click karo.</span>
+    </label>
+
+    <div class="sec-title">Tumhare notes</div>
+    <ul id="docs" class="docs"></ul>
+    <p class="hint" id="docHint">Koi bhi select na karo toh saare notes use honge.</p>
+  </aside>
+
+  <main class="main">
+    <nav class="tabs" id="tabs">
+      <button data-tab="chat" class="on">Doubt poocho</button>
+      <button data-tab="quiz">Quiz</button>
+      <button data-tab="cards">Flashcards</button>
+      <button data-tab="plan">Progress aur plan</button>
+    </nav>
+
+    <section id="chat" class="pane on">
+      <div id="log" class="log">
+        <div class="empty">Pehle notes upload karo, phir koi bhi doubt Hinglish mein poocho.<br>Jaise: <i>"Ye concept simple bhasha mein samjhao"</i></div>
+      </div>
+      <div class="composer">
+        <button id="mic" class="ghost" title="Bolkar poocho">Bolo</button>
+        <input id="msg" placeholder="Apna sawal likho..." autocomplete="off">
+        <button id="send">Bhejo</button>
+      </div>
+    </section>
+
+    <section id="quiz" class="pane">
+      <div class="bar">
+        <input id="qTopic" placeholder="Topic (optional)">
+        <input id="qCount" type="number" min="1" max="15" value="5" title="Kitne sawal">
+        <button id="qGo">Quiz banao</button>
+      </div>
+      <div id="qOut"></div>
+    </section>
+
+    <section id="cards" class="pane">
+      <div class="bar">
+        <input id="fTopic" placeholder="Topic (optional)">
+        <input id="fCount" type="number" min="1" max="20" value="8" title="Kitne cards">
+        <button id="fGo">Flashcards banao</button>
+      </div>
+      <div id="fOut"></div>
+    </section>
+
+    <section id="plan" class="pane">
+      <h2>Kahan kamzor ho</h2>
+      <div id="prog" class="prog"><p class="hint">Quiz do, tab yahan weak topics dikhenge.</p></div>
+      <h2>Revision plan</h2>
+      <div class="bar">
+        <input id="days" type="number" min="1" value="7" title="Exam mein kitne din">
+        <input id="hours" type="number" min="0.5" step="0.5" value="2" title="Roz kitne ghante">
+        <button id="pGo">Plan banao</button>
+      </div>
+      <div id="pOut" class="md"></div>
+    </section>
+  </main>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
